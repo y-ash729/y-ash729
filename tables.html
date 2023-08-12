@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Multiplication Table</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <style>
+        .table-responsive {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .table {
+            width: auto;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <a class="m-2 h1" href="index.html">Back to Home</a>
+    <div class="container">
+        <h1 class="text-center my-4">Multiplication Table</h1>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+            <!-- Generate tables using JavaScript -->
+        </div>
+
+    </div>
+
+    <!-- Generate tables using JavaScript -->
+    <script type="text/javascript">
+        let container = document.querySelector('.container .row');
+        for (let i = 2; i <= 25; i++) {
+            let col = document.createElement('div');
+            col.classList.add('col');
+            let card = document.createElement('div');
+            card.classList.add('card', 'h-100');
+            let cardBody = document.createElement('div');
+            cardBody.classList.add('card-body');
+            let cardTitle = document.createElement('h5');
+            cardTitle.classList.add('card-title');
+            cardTitle.innerHTML = 'Table of ' + i;
+            cardBody.appendChild(cardTitle);
+            let listGroup = document.createElement('ul');
+            listGroup.classList.add('list-group', 'list-group-flush');
+            for (let j = 1; j <= 10; j++) {
+                let listGroupItem = document.createElement('li');
+                listGroupItem.classList.add('list-group-item');
+                listGroupItem.innerHTML = i + ' x ' + j + ' = ' + (i * j);
+                listGroup.appendChild(listGroupItem);
+            }
+            cardBody.appendChild(listGroup);
+            card.appendChild(cardBody);
+            col.appendChild(card);
+            container.appendChild(col);
+        }
+    </script>
+
+</body>
